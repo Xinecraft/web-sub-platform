@@ -21,14 +21,23 @@ OPTIONAL:-
 Note:-
 1. Please provide special instructions(if any) to make to code base run on our local/remote platform.
 
+# Requirements
+1. PHP 7+
+2. MySQL
+3. Redis
 
 # Install Process
-`php artisan migrate --seed`
+1. Clone the repo
+2. Copy .env.example to .env & Generate App Key for laravel
+3. Set redis, database and queue driver in .env
+4. Run migrations & seeder `php artisan migrate --seed`
+5. Turn on queue listeners `php artisan queue:work`
 
-# Command to send email for a post
+# Command to retry pending email for a post
 ```
 php artisan email:post {post_id}
 
 Eg:
 php artisan email:post 1
 ```
+Note: Email is only sent once for per post per user.
