@@ -48,7 +48,7 @@ class SendPostEmailToSubscribersCommand extends Command
         }
 
         // get all subscribers
-        $websiteSubscribers = $post->website->subscribers;
+        $websiteSubscribers = $post->website->subscribers()->cursor();
         foreach ($websiteSubscribers as $subscriber) {
             SendPostEmailToSubscriber::dispatch($post, $subscriber);
         }

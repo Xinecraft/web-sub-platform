@@ -16,7 +16,7 @@ class CreateWebsitesTable extends Migration
         Schema::create('websites', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('domain');
+            $table->string('domain')->unique();
             $table->foreignIdFor(\App\Models\User::class, 'created_by');
             $table->timestamps();
         });

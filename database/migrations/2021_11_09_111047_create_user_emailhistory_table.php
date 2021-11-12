@@ -17,6 +17,7 @@ class CreateUserEmailhistoryTable extends Migration
             $table->id();
             $table->foreignIdFor(\App\Models\User::class, 'user_id');
             $table->foreignIdFor(\App\Models\Post::class, 'post_id');
+            $table->unique(['user_id', 'post_id']);
             $table->timestamps();
         });
     }

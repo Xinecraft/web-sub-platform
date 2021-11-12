@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     public function emailHistory(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(Post::class, 'user_emailhistory');
+        return $this->belongsToMany(Post::class, 'user_emailhistory')->withTimestamps();
     }
 
     public function hasReceivedEmailForPost($post): bool

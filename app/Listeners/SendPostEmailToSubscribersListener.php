@@ -28,7 +28,7 @@ class SendPostEmailToSubscribersListener implements ShouldQueue
     public function handle(PostCreated $event)
     {
         // get all subscribers of this website
-        $websiteSubscribers = $event->post->website->subscribers;
+        $websiteSubscribers = $event->post->website->subscribers()->cursor();
 
         foreach ($websiteSubscribers as $subscriber) {
             SendPostEmailToSubscriber::dispatch($event->post, $subscriber);

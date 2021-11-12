@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('register', [\App\Http\Controllers\Api\ApiAuthController::class, 'register']);
 Route::post('login', [\App\Http\Controllers\Api\ApiAuthController::class, 'login']);
 
 Route::get('website', [\App\Http\Controllers\Api\WebsiteController::class, 'index']);

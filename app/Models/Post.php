@@ -11,7 +11,7 @@ class Post extends Model
 
     use HasFactory;
 
-    public function website()
+    public function website(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Website::class);
     }
